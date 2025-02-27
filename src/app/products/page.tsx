@@ -9,7 +9,7 @@ export default async function Page({
 }: {
   searchParams: any  // Use 'any' to bypass type checking temporarily
 }) {
-  const params = await searchParams;
+  const params = searchParams;
   const sortOrder = params.sort || "";
   
   let allProducts = await getAllProducts();
