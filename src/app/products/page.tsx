@@ -1,5 +1,3 @@
-// src/app/products/page.tsx
-
 import FilterProduct from "@/components/FilterProduct";
 import ProductList from "@/components/ProductList";
 import { getAllProducts } from "@/lib/actions";
@@ -9,7 +7,7 @@ import { Suspense } from "react";
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Record<string, string | string[] | undefined>
+  searchParams: Record<string, string | string[] | undefined>;
 }) {
   const sortOrder = typeof searchParams.sort === 'string' ? searchParams.sort : "";
   
