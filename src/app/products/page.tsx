@@ -3,23 +3,27 @@ import ProductList from "@/components/ProductList";
 import { getAllProducts } from "@/lib/actions";
 import { Suspense } from "react";
 
-// Use Next.js's built-in types
+// Define proper types here without relying on imported types
 export default async function Page({
   searchParams,
 }: {
-  searchParams: Record<string, string | string[] | undefined>;
+  searchParams?: {
+    sort?: string;
+  }
 }) {
-  const sortOrder = typeof searchParams.sort === 'string' ? searchParams.sort : "";
+  const sortOrder = searchParams?.sort || "";
   
   let allProducts = await getAllProducts();
   if (!allProducts) {
     return <div>Products not found!</div>;
   }
+  
   if (sortOrder === "asc price") {
     allProducts = [...allProducts].sort((a, b) => a.price - b.price);
   } else if (sortOrder === "desc price") {
     allProducts = [...allProducts].sort((a, b) => b.price - a.price);
   }
+  
   return (
     <div>
       <div className="max-w-6xl mx-auto flex justify-between">
