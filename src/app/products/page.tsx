@@ -3,11 +3,10 @@ import ProductList from "@/components/ProductList";
 import { getAllProducts } from "@/lib/actions";
 import { Suspense } from "react";
 
-// Remove the PageProps import and use inline types
 export default async function Page({
   searchParams,
 }: {
-  searchParams: any  // Use 'any' to bypass type checking temporarily
+  searchParams: { sort?: string }
 }) {
   const params = searchParams;
   const sortOrder = params.sort || "";
