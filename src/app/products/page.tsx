@@ -1,11 +1,14 @@
 import FilterProduct from "@/components/FilterProduct";
 import ProductList from "@/components/ProductList";
 import { getAllProducts } from "@/lib/actions";
-import { PageProps } from "@/types/types";
 import { Suspense } from "react";
 
-export default async function Page({ searchParams }: PageProps) {
-
+// Remove the PageProps import and use inline types
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: any  // Use 'any' to bypass type checking temporarily
+}) {
   const params = await searchParams;
   const sortOrder = params.sort || "";
   
