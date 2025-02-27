@@ -161,12 +161,6 @@ export interface StripeCheckoutSession {
 }
 
 
-export interface PageProps {
-  searchParams: {
-    sort?: string;
-  }
-}
-
 export interface FilterProductProps {
   currentSortOrder: string;
 }
